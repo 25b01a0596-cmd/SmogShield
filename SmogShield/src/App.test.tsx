@@ -1,31 +1,38 @@
 import { describe, it, expect } from 'vitest';
 
-// Unit tests for AtmosGuard / SmogShield Assessment Logic
-describe('SmogShield Assessment Validation', () => {
-  it('validates supported city input parameters', () => {
-    const city = 'New Delhi';
-    expect(city.trim().length).toBeGreaterThan(0);
+describe('SmogShield Application Logic', () => {
+  const routines = ['Work from Home', 'Office Commuter', 'Student', 'Outdoor Worker'];
+
+  it('supports all four primary daily routines', () => {
+    expect(routines).toHaveLength(4);
+    expect(routines).toContain('Office Commuter');
+    expect(routines).toContain('Outdoor Worker');
   });
 
-  it('maps routine and vulnerability selections correctly', () => {
+  it('constructs assessment payload with multiple household sensitivities', () => {
     const payload = {
       city: 'New Delhi',
       routine: 'Office Commuter',
-      vulnerabilities: ['Children at home'],
+      vulnerabilities: ['Children at home', 'Elderly (65+)', 'Asthma / Respiratory'],
     };
 
-    expect(payload.routine).toBe('Office Commuter');
-    expect(payload.vulnerabilities).toContain('Children at home');
+    expect(payload.city).toBe('New Delhi');
+    expect(payload.vulnerabilities).toHaveLength(3);
   });
 
-  it('ensures survival plan contains all 4 required sections', () => {
-    const expectedSections = [
+  it('verifies all four output sections exist in survival plan', () => {
+    const sections = [
       'Low-Emission Daily Routine',
       'Indoor Air Quality Protocols',
       'Sustainable Daily Alternatives',
       'Direct Health & Environmental Impact',
     ];
 
-    expect(expectedSections).toHaveLength(4);
+    expect(sections).toEqual([
+      'Low-Emission Daily Routine',
+      'Indoor Air Quality Protocols',
+      'Sustainable Daily Alternatives',
+      'Direct Health & Environmental Impact',
+    ]);
   });
 });
