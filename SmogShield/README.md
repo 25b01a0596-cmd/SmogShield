@@ -18,3 +18,10 @@ View your app in AI Studio: https://ai.studio/apps/1a221f7d-897b-4584-b51b-643ad
 2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
 3. Run the app:
    `npm run dev`
+
+
+## Performance & Architecture
+
+1.Client-side state memoization and request deduplication to prevent redundant Gemini API calls.
+
+2.Lightweight Vite production bundle with tree-shaken Tailwind CSS
