@@ -1,0 +1,6 @@
+{
+  "name": "AtmosGuard",
+  "description": "Smog survival and air quality assistant generating personalized low-emission daily routines, indoor air quality hacks, sustainable alternatives, and quantified health and environmental impact.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
